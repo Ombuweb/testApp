@@ -1,38 +1,15 @@
-import { Observable } from '@nativescript/core'
-
+import { ItemsLoading, Observable, ObservableArray,  } from '@nativescript/core'
 export class HelloWorldModel extends Observable {
-  private _counter: number
-  private _message: string
 
   constructor() {
     super()
+  }
+onTap() {
 
-    // Initialize default values.
-    this._counter = 42
-    this.updateMessage()
+  var obsArray = new ObservableArray([1, 2, 3]);
+var item = obsArray.getItem(1); // Get last item
+obsArray.setItem(-1, item + 1); // Set new last item
+console.log("OArray test",item)
   }
 
-  get message(): string {
-    return this._message
-  }
-
-  set message(value: string) {
-    if (this._message !== value) {
-      this._message = value
-      this.notifyPropertyChange('message', value)
-    }
-  }
-
-  onTap() {
-    this._counter--
-    this.updateMessage()
-  }
-
-  private updateMessage() {
-    if (this._counter <= 0) {
-      this.message = 'Hoorraaay! You unlocked the NativeScript clicker achievement!'
-    } else {
-      this.message = `${this._counter} taps left`
-    }
-  }
 }
