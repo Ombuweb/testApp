@@ -10,6 +10,7 @@ https://docs.nativescript.org/ui/components.
     http://docs.nativescript.org/ui/action-bar
     -->
     <ActionBar title="My App" icon="" />
+ 
 
     <!--
     The StackLayout stacks UI components on the screen—either vertically or horizontally.
@@ -24,7 +25,10 @@ https://docs.nativescript.org/ui/components.
     -->
     <StackLayout class="p-20">
         <Label text="Tap the button" class="h1 text-center" />
-        <Button text="TAP" tap="{{ onTap }}" class="-primary" />
-        <Label text="{{ message }}" class="h2 text-center" textWrap="true" />
+        <Button text="TAP" tap="{{ onTap }}" class="-primary"/>
+        <Button text="TAP" tap="{{ insertInv }}" class="-primary"/>
+        <TextField  text="{{invId}}" />
+        
+        <Button text="TAP" tap="{{ deleteInv }}" class="-primary"/>
     </StackLayout>
 </Page>

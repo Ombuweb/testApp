@@ -1,6 +1,24 @@
 // You can add your native dependencies here
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
 dependencies {
-//  implementation 'androidx.multidex:multidex:2.0.1'
+implementation 'androidx.multidex:multidex:2.0.1'
+// Room components
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
+    implementation "androidx.room:room-guava:$rootProject.roomVersion"
+    implementation "androidx.concurrent:concurrent-futures:1.1.0"
+    implementation 'com.google.guava:guava:27.0.1-jre'
+//Thanks for using https://jar-download.com
+
+// Lifecycle components
+    implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
 }
 
 android {
@@ -17,6 +35,8 @@ android {
     versionName "1.0.0"
     
     generatedDensities = []
+
+    multiDexEnabled true
   }
 
   aaptOptions {
